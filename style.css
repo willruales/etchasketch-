@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+
+.canvas {
+    margin-top: 25px;
+    margin-right: 40px;
+    display: inline-grid;
+    grid-template-columns: repeat(16, 2fr);
+    grid-template-rows: repeat(16, 2fr);
+    border: 5px solid black;
+    border-radius: 5px;
+    height: 575px;
+    width: 575px;
+}
+
+.square {
+    background-color: rgb(97, 37, 37);
+    border: 1px solid black;
+}
+
+.color {
+    background-color: rgb(12, 109, 56);
+    border: 1px solid black;
+}
