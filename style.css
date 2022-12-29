@@ -13,9 +13,9 @@ header {
 .canvas {
     margin-top: 25px;
     margin-right: 40px;
-    display: inline-grid;
-    grid-template-columns: repeat(16, 2fr);
-    grid-template-rows: repeat(16, 2fr);
+    display: grid;
+    /* grid-template-columns: repeat(16, 2fr);
+    grid-template-rows: repeat(16, 2fr); */
     border: 5px solid black;
     border-radius: 5px;
     height: 575px;
@@ -23,7 +23,7 @@ header {
 }
 
 .square {
-    background-color: rgb(97, 37, 37);
+    background-color: rgb(233, 86, 86);
     border: 1px solid black;
 }
 

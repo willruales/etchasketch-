@@ -2,55 +2,39 @@ const grid = document.querySelector(".canvas");
 const userInput = document.getElementById("quantity");
 const resetButton = document.querySelector(".reset");
 const input = userInput.value
-createGrid = () => {
-    for (let i = 0; i < 256; i++) {
-        const div = document.createElement("div");
-        div.classList.add("square");
-        grid.appendChild(div);
-    }
-};
+const select = document.querySelector(".select")
 
-function updateGrid(input) {
-    grid.innerHTML = "";
-    grid.style.setProperty(
-        "grid-template-columns",
-        `repeat(${input}, 2fr)`
-    );
-    grid.style.setProperty(
-        "grid-template-rows",
-        `repeat(${input}, 2fr)`
-    );
-
-
-    for (let i = 0; i < input * input; i++) {
-        const div = document.createElement("div");
-        div.classList.add("square");
-        grid.appendChild(div);
-
-
-
+function createGrid(size) {
+    grid.innerHTML = ""
+    grid.style.gridTemplateColumns = `repeat(${size},1fr)`;
+    grid.style.gridTemplateRows = `repeat(${size},1fr)`;
+    let numDiv = size * size
+    for (let i = 0; i < numDiv; i++) {
+        const div = document.createElement("div")
+        div.classList.add("square")
+        grid.appendChild(div)
         div.addEventListener("mouseover", function () {
-            div.style.backgroundColor = "yellow";
-        });
-
-
+            div.classList.add("color")
+        })
     }
-    console.log(userInput.value);
-    s
+}
 
+getSize = () => {
+    console.log(userInput.value)
+    return userInput.value
+}
 
-};
-
-
-
-userInput.addEventListener("change", updateGrid);
+select.addEventListener("click", function () {
+    let size = getSize();
+    createGrid(size)
+})
 
 resetButton.addEventListener("click", function () {
     grid.innerHTML = "";
     userInput.value = "";
     grid.style.setProperty("grid-template-columns", `repeat(16, 2fr)`);
     grid.style.setProperty("grid-template-rows", `repeat(16, 2fr)`);
-    createGrid();
+    createGrid(16);
 });
 
-createGrid();
+createGrid(16)
